@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResQNet | Safety Map</title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        .header {
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #d62828;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .location-status {
+            background: #ecfdf3;
+            color: #159447;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .map-container {
+            width: 100%;
+            height: calc(100vh - 70px);
+            position: relative;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-panel {
+            position: absolute;
+            z-index: 1000;
+            top: 20px;
+            left: 20px;
+            width: 280px;
+            background: white;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .map-panel h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .map-panel p {
+            font-size: 13px;
+            color: #667085;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .dot {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .police {
+            background: #2563eb;
+        }
+
+        .medical {
+            background: #16a34a;
+        }
+
+        .fire {
+            background: #dc2626;
+        }
+
+        .current {
+            background: #7c3aed;
+        }
+
+        .back-button {
+            position: absolute;
+            z-index: 1000;
+            right: 20px;
+            bottom: 25px;
+            background: #172033;
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-button:hover {
+            background: #000;
+        }
+
+        @media (max-width: 700px) {
+
+            .header {
+                padding: 0 15px;
+            }
+
+            .title {
+                display: none;
+            }
+
+            .map-panel {
+                width: calc(100% - 30px);
+                left: 15px;
+                top: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+            ResQNet
+        </div>
+
+        <div class="title">
+            Interactive Safety Map
+        </div>
+
+        <div
+            class="location-status"
+            id="locationStatus"
+        >
+            ● Detecting Location...
+        </div>
+
+    </header>
+
+
+    <!-- MAP -->
+
+    <div class="map-container">
+
+        <div id="map"></div>
+
+
+        <!-- MAP INFORMATION PANEL -->
+
+        <div class="map-panel">
+
+            <h2>
+                Safety Map
+            </h2>
+
+            <p>
+                View emergency service locations and
+                your current location on the ResQNet map.
+            </p>
+
+            <div class="legend">
+
+                <div class="legend-item">
+                    <span class="dot police"></span>
+                    Police / Emergency
+                </div>
+
+                <div class="legend-item">
+                    <span class="dot medical"></span>
+                    Medical Assistance
+                </div>
+
+                <div class="legend-item">
+                    <span class="dot fire"></span>
+                    Fire Services
+                </div>
+
+                <div class="legend-item">
+                    <span class="dot current"></span>
+                    Your Current Location
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="back-button"
+        >
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <!-- LEAFLET JS -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+
+    <script>
+
+        // ==========================================
+        // INITIAL MAP
+        // ==========================================
+
+        const map =
+            L.map("map").setView(
+                [28.6139, 77.2090],
+                12
+            );
+
+
+        // ==========================================
+        // ESRI WORLD STREET MAP
+        // ==========================================
+
+        L.tileLayer(
+            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+            {
+                maxZoom: 19,
+                attribution:
+                    "© Esri, HERE, Garmin, © OpenStreetMap contributors"
+            }
+        ).addTo(map);
+
+
+        // ==========================================
+        // CUSTOM MARKER ICONS
+        // ==========================================
+
+        const policeIcon =
+            L.divIcon({
+                className: "",
+                html:
+                    '<div style="background:#2563eb;color:white;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;border:3px solid white;box-shadow:0 3px 10px rgba(0,0,0,.3)">P</div>',
+                iconSize: [34, 34],
+                iconAnchor: [17, 17]
+            });
+
+
+        const medicalIcon =
+            L.divIcon({
+                className: "",
+                html:
+                    '<div style="background:#16a34a;color:white;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;border:3px solid white;box-shadow:0 3px 10px rgba(0,0,0,.3)">+</div>',
+                iconSize: [34, 34],
+                iconAnchor: [17, 17]
+            });
+
+
+        const fireIcon =
+            L.divIcon({
+                className: "",
+                html:
+                    '<div style="background:#dc2626;color:white;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;border:3px solid white;box-shadow:0 3px 10px rgba(0,0,0,.3)">F</div>',
+                iconSize: [34, 34],
+                iconAnchor: [17, 17]
+            });
+
+
+        // ==========================================
+        // EMERGENCY SERVICE MARKERS
+        // ==========================================
+
+        L.marker(
+            [28.6139, 77.2090],
+            {
+                icon: policeIcon
+            }
+        )
+        .addTo(map)
+        .bindPopup(
+            "<b>Police Emergency</b><br>Emergency Number: 112"
+        );
+
+
+        L.marker(
+            [28.6280, 77.2180],
+            {
+                icon: medicalIcon
+            }
+        )
+        .addTo(map)
+        .bindPopup(
+            "<b>Medical Assistance</b><br>Ambulance: 108"
+        );
+
+
+        L.marker(
+            [28.6020, 77.2300],
+            {
+                icon: fireIcon
+            }
+        )
+        .addTo(map)
+        .bindPopup(
+            "<b>Fire Services</b><br>Emergency Number: 101"
+        );
+
+
+        // ==========================================
+        // CURRENT LOCATION
+        // ==========================================
+
+        if (
+            navigator.geolocation
+        ) {
+
+            navigator.geolocation.getCurrentPosition(
+
+                function(position) {
+
+                    const latitude =
+                        position.coords.latitude;
+
+                    const longitude =
+                        position.coords.longitude;
+
+
+                    const currentLocationIcon =
+                        L.divIcon({
+                            className: "",
+                            html:
+                                '<div style="background:#7c3aed;color:white;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;border:4px solid white;box-shadow:0 4px 14px rgba(0,0,0,.35)">●</div>',
+                            iconSize: [38, 38],
+                            iconAnchor: [19, 19]
+                        });
+
+
+                    L.marker(
+                        [latitude, longitude],
+                        {
+                            icon:
+                                currentLocationIcon
+                        }
+                    )
+                    .addTo(map)
+                    .bindPopup(
+                        "<b>Your Current Location</b><br>ResQNet location support is active."
+                    )
+                    .openPopup();
+
+
+                    map.setView(
+                        [latitude, longitude],
+                        14
+                    );
+
+
+                    document
+                        .getElementById(
+                            "locationStatus"
+                        )
+                        .innerHTML =
+                        "● Current Location Detected";
+
+
+                },
+
+                function(error) {
+
+                    document
+                        .getElementById(
+                            "locationStatus"
+                        )
+                        .innerHTML =
+                        "● Location Unavailable";
+
+                }
+
+            );
+
+        } else {
+
+            document
+                .getElementById(
+                    "locationStatus"
+                )
+                .innerHTML =
+                "● Location Not Supported";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

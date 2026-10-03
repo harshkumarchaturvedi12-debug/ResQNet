@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResQNet | Incident Records</title>
+
+    <link rel="stylesheet" href="css/incidents.css">
+</head>
+
+<body>
+
+    <header class="incidents-header">
+
+        <div class="brand">
+            <div class="brand-icon">+</div>
+
+            <div>
+                <strong>ResQ<span>Net</span></strong>
+                <small>Incident Records</small>
+            </div>
+        </div>
+
+        <a href="dashboard.html" class="back-btn">
+            ← Dashboard
+        </a>
+
+    </header>
+
+
+    <main class="incidents-container">
+
+        <!-- INTRO -->
+
+        <section class="intro">
+
+            <span class="label">INCIDENT RECORDS</span>
+
+            <h1>Recent Incidents</h1>
+
+            <p>
+                View and organize previously recorded emergency incidents
+                in one place.
+            </p>
+
+        </section>
+
+
+        <!-- ADD INCIDENT -->
+
+        <section class="add-incident">
+
+            <div class="section-heading">
+
+                <span>NEW INCIDENT</span>
+
+                <h2>Record an Incident</h2>
+
+            </div>
+
+
+            <form id="incidentForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="incidentType">
+                            Incident Type
+                        </label>
+
+                        <select id="incidentType" required>
+
+                            <option value="">
+                                Select incident type
+                            </option>
+
+                            <option value="Medical Assistance">
+                                Medical Assistance
+                            </option>
+
+                            <option value="Road Accident">
+                                Road Accident
+                            </option>
+
+                            <option value="Fire Emergency">
+                                Fire Emergency
+                            </option>
+
+                            <option value="Personal Safety">
+                                Personal Safety
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="incidentLocation">
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="incidentLocation"
+                            placeholder="Enter location"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="incidentDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="incidentDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="incidentDescription">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="incidentDescription"
+                            rows="4"
+                            placeholder="Describe the incident"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="save-incident-btn"
+                >
+                    Save Incident
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- INCIDENT LIST -->
+
+        <section class="incident-list" id="incidentList">
+
+            <!-- Backend incidents will appear here -->
+
+            <div class="incident-card">
+
+                <div class="incident-icon safety">
+                    ✓
+                </div>
+
+                <div class="incident-details">
+
+                    <span>BACKEND DATABASE</span>
+
+                    <h2>Loading Incidents...</h2>
+
+                    <p>
+                        Fetching incident records from the
+                        ResQNet backend database.
+                    </p>
+
+                </div>
+
+                <span class="status recorded">
+                    Loading
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION -->
+
+        <section class="info-box">
+
+            <div class="info-icon">
+                i
+            </div>
+
+            <div>
+
+                <h3>Incident Records</h3>
+
+                <p>
+                    These records are maintained for
+                    organizational and safety tracking purposes.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        ResQNet Smart Emergency Assistance Platform
+    </footer>
+
+
+    <!-- EXISTING RESQNET JAVASCRIPT -->
+
+    <script src="js/app.js"></script>
+
+
+    <!-- BACKEND DATABASE CONNECTION -->
+
+    <script>
+
+        const BACKEND_URL = "http://127.0.0.1:5000/api";
+
+        async function loadBackendIncidents() {
+
+            const incidentList =
+                document.getElementById("incidentList");
+
+            try {
+
+                const response =
+                    await fetch(`${BACKEND_URL}/incidents`);
+
+                const data =
+                    await response.json();
+
+                if (!data.success) {
+                    throw new Error("Unable to load incidents");
+                }
+
+
+                incidentList.innerHTML = "";
+
+
+                if (!data.incidents || data.incidents.length === 0) {
+
+                    incidentList.innerHTML = `
+
+                        <div class="incident-card">
+
+                            <div class="incident-icon safety">
+                                ✓
+                            </div>
+
+                            <div class="incident-details">
+
+                                <span>NO RECORDS</span>
+
+                                <h2>No Incidents Recorded</h2>
+
+                                <p>
+                                    No incident records are currently
+                                    available in the backend database.
+                                </p>
+
+                            </div>
+
+                            <span class="status recorded">
+                                Active
+                            </span>
+
+                        </div>
+
+                    `;
+
+                    return;
+                }
+
+
+                data.incidents.forEach(incident => {
+
+                    let iconClass = "safety";
+                    let icon = "✓";
+
+                    if (
+                        incident.type === "Road Accident"
+                    ) {
+                        iconClass = "accident";
+                        icon = "!";
+                    }
+
+                    else if (
+                        incident.type === "Medical Assistance"
+                    ) {
+                        iconClass = "medical";
+                        icon = "+";
+                    }
+
+                    else if (
+                        incident.type === "Fire Emergency"
+                    ) {
+                        iconClass = "fire";
+                        icon = "!";
+                    }
+
+
+                    let formattedDate = incident.date;
+
+                    if (incident.date) {
+
+                        const date =
+                            new Date(incident.date);
+
+                        if (!isNaN(date)) {
+
+                            formattedDate =
+                                date.toLocaleDateString(
+                                    "en-IN",
+                                    {
+                                        day: "2-digit",
+                                        month: "short",
+                                        year: "numeric"
+                                    }
+                                );
+                        }
+                    }
+
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className = "incident-card";
+
+
+                    card.innerHTML = `
+
+                        <div class="incident-icon ${iconClass}">
+                            ${icon}
+                        </div>
+
+
+                        <div class="incident-details">
+
+                            <span>
+                                ${incident.type || "INCIDENT"}
+                            </span>
+
+                            <h2>
+                                ${incident.type || "Incident Record"}
+                            </h2>
+
+                            <p>
+                                ${incident.description ||
+                                "Incident recorded in the ResQNet system."}
+                            </p>
+
+
+                            <div class="incident-meta">
+
+                                <span>
+                                    📅 ${formattedDate}
+                                </span>
+
+                                <span>
+                                    📍 ${incident.location ||
+                                    "Location not provided"}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="status recorded">
+                            Recorded
+                        </span>
+
+                    `;
+
+
+                    incidentList.appendChild(card);
+
+                });
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Backend Incident Error:",
+                    error
+                );
+
+
+                incidentList.innerHTML = `
+
+                    <div class="incident-card">
+
+                        <div class="incident-icon accident">
+                            !
+                        </div>
+
+                        <div class="incident-details">
+
+                            <span>BACKEND ERROR</span>
+
+                            <h2>Unable to Load Records</h2>
+
+                            <p>
+                                Please make sure the ResQNet
+                                backend server is running.
+                            </p>
+
+                        </div>
+
+                        <span class="status review">
+                            Offline
+                        </span>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            loadBackendIncidents
+        );
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResQNet | Safety Analytics</title>
+
+    <link rel="stylesheet" href="css/analytics.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="top-header">
+
+        <div class="brand">
+
+            <div class="brand-icon">+</div>
+
+            <div>
+                <strong>ResQ<span>Net</span></strong>
+                <small>Smart Emergency Assistance</small>
+            </div>
+
+        </div>
+
+        <div class="user-area">
+            <span class="notification">♧</span>
+            <div class="avatar">H</div>
+            <strong>ResQNet User</strong>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+
+    <div class="page-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <a href="dashboard.html">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="emergency.html">
+                <span>⚠</span>
+                Emergency Center
+            </a>
+
+            <a href="contacts.html">
+                <span>♟</span>
+                Emergency Contacts
+            </a>
+
+            <a href="incident.html">
+                <span>▣</span>
+                Incident Records
+            </a>
+
+            <a href="analytics.html" class="active">
+                <span>▥</span>
+                Safety Analytics
+            </a>
+
+            <a href="map.html">
+                <span>◈</span>
+                Safety Map
+            </a>
+
+            <a href="profile.html">
+                <span>♙</span>
+                My Profile
+            </a>
+
+        </aside>
+
+
+        <!-- MAIN -->
+
+        <main class="analytics-main">
+
+
+            <!-- PAGE TITLE -->
+
+            <section class="page-heading">
+
+                <span>SAFETY ANALYTICS</span>
+
+                <h1>Safety Overview</h1>
+
+                <p>
+                    Monitor incident activity, emergency contacts,
+                    and overall safety preparedness.
+                </p>
+
+            </section>
+
+
+            <!-- TOP STATS -->
+
+            <section class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">!</div>
+
+                    <div>
+                        <small>TOTAL INCIDENTS</small>
+
+                        <h2 id="totalIncidents">0</h2>
+
+                        <p>Recorded incidents</p>
+                    </div>
+
+                    <div class="mini-line red-line"></div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">+</div>
+
+                    <div>
+                        <small>EMERGENCY CONTACTS</small>
+
+                        <h2 id="totalContacts">0</h2>
+
+                        <p>Trusted contacts</p>
+                    </div>
+
+                    <div class="mini-line blue-line"></div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">03</div>
+
+                    <div>
+                        <small>EMERGENCY SERVICES</small>
+
+                        <h2>03</h2>
+
+                        <p>Available services</p>
+                    </div>
+
+                    <div class="mini-line purple-line"></div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">✓</div>
+
+                    <div>
+                        <small>SAFETY STATUS</small>
+
+                        <h2>Active</h2>
+
+                        <p>System operational</p>
+                    </div>
+
+                    <div class="mini-line green-line"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONTENT GRID -->
+
+            <section class="content-grid">
+
+
+                <!-- ACTIVITY -->
+
+                <div class="activity-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span>ACTIVITY</span>
+
+                            <h2>Safety Activity</h2>
+
+                            <p>
+                                Current incident and contact activity
+                                recorded in ResQNet.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CATEGORY CARDS -->
+
+                    <div class="category-grid">
+
+
+                        <div class="category-card">
+
+                            <div class="category-icon red">
+                                !
+                            </div>
+
+                            <h3>Road Accidents</h3>
+
+                            <strong id="roadCount">0</strong>
+
+                            <p>Recorded incidents</p>
+
+                        </div>
+
+
+                        <div class="category-card">
+
+                            <div class="category-icon blue">
+                                +
+                            </div>
+
+                            <h3>Medical Assistance</h3>
+
+                            <strong id="medicalCount">0</strong>
+
+                            <p>Medical-related incidents</p>
+
+                        </div>
+
+
+                        <div class="category-card">
+
+                            <div class="category-icon orange">
+                                !
+                            </div>
+
+                            <h3>Fire Emergencies</h3>
+
+                            <strong id="fireCount">0</strong>
+
+                            <p>Fire-related incidents</p>
+
+                        </div>
+
+
+                        <div class="category-card">
+
+                            <div class="category-icon green">
+                                ✓
+                            </div>
+
+                            <h3>Safety Reports</h3>
+
+                            <strong id="safetyCount">0</strong>
+
+                            <p>Personal safety records</p>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- SIMPLE ACTIVITY GRAPH -->
+
+                    <div class="chart-section">
+
+                        <div class="chart-title">
+
+                            <strong>
+                                Incident Activity
+                            </strong>
+
+                            <span>
+                                Current Records
+                            </span>
+
+                        </div>
+
+
+                        <div class="bar-chart" id="barChart">
+
+                            <div class="empty-chart">
+                                Loading activity...
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart-legend">
+
+                            <span>
+                                <i class="legend red"></i>
+                                Road Accidents
+                            </span>
+
+                            <span>
+                                <i class="legend blue"></i>
+                                Medical
+                            </span>
+
+                            <span>
+                                <i class="legend orange"></i>
+                                Fire
+                            </span>
+
+                            <span>
+                                <i class="legend green"></i>
+                                Safety
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT PANEL -->
+
+                <div class="right-panel">
+
+
+                    <!-- PREPAREDNESS -->
+
+                    <div class="preparedness-card">
+
+                        <div class="panel-heading">
+
+                            <span>PREPAREDNESS</span>
+
+                            <h2>Safety Readiness</h2>
+
+                            <p>
+                                Emergency Preparedness
+                            </p>
+
+                        </div>
+
+
+                        <div class="readiness-area">
+
+                            <div class="progress-ring">
+
+                                <div class="progress-inner">
+
+                                    <strong>86%</strong>
+
+                                    <span>
+                                        Readiness Score
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="check-list">
+
+                                <div>
+                                    <b>✓</b>
+                                    Emergency services available
+                                </div>
+
+                                <div>
+                                    <b>✓</b>
+                                    Trusted contact added
+                                </div>
+
+                                <div>
+                                    <b>✓</b>
+                                    Incident tracking enabled
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ABOUT -->
+
+                    <div class="about-card">
+
+                        <div class="about-icon">
+                            i
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                About Safety Analytics
+                            </h3>
+
+                            <p>
+                                ResQNet analytics organize recorded
+                                safety information to help users
+                                understand their emergency
+                                preparedness and activity.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <footer>
+        ResQNet Smart Emergency Assistance Platform
+    </footer>
+
+
+    <!-- BACKEND CONNECTION -->
+
+    <script>
+
+        const API =
+            "http://127.0.0.1:5000/api";
+
+
+        async function loadAnalytics() {
+
+            try {
+
+                const response =
+                    await fetch(`${API}/incidents`);
+
+                const data =
+                    await response.json();
+
+
+                const incidents =
+                    data.incidents || [];
+
+
+                const contactResponse =
+                    await fetch(`${API}/contacts`);
+
+                const contactData =
+                    await contactResponse.json();
+
+
+                const contacts =
+                    contactData.contacts || [];
+
+
+                /* TOTALS */
+
+                document.getElementById(
+                    "totalIncidents"
+                ).textContent = incidents.length;
+
+
+                document.getElementById(
+                    "totalContacts"
+                ).textContent = contacts.length;
+
+
+                /* CATEGORY COUNTS */
+
+                let road = 0;
+                let medical = 0;
+                let fire = 0;
+                let safety = 0;
+
+
+                incidents.forEach(incident => {
+
+                    const type =
+                        (incident.type || "")
+                        .toLowerCase();
+
+
+                    if (type.includes("road")) {
+                        road++;
+                    }
+
+                    else if (
+                        type.includes("medical")
+                    ) {
+                        medical++;
+                    }
+
+                    else if (
+                        type.includes("fire")
+                    ) {
+                        fire++;
+                    }
+
+                    else {
+                        safety++;
+                    }
+
+                });
+
+
+                document.getElementById(
+                    "roadCount"
+                ).textContent = road;
+
+
+                document.getElementById(
+                    "medicalCount"
+                ).textContent = medical;
+
+
+                document.getElementById(
+                    "fireCount"
+                ).textContent = fire;
+
+
+                document.getElementById(
+                    "safetyCount"
+                ).textContent = safety;
+
+
+                /* GRAPH */
+
+                createChart(
+                    road,
+                    medical,
+                    fire,
+                    safety
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Analytics Error:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        function createChart(
+            road,
+            medical,
+            fire,
+            safety
+        ) {
+
+            const chart =
+                document.getElementById(
+                    "barChart"
+                );
+
+
+            const values = [
+                road,
+                medical,
+                fire,
+                safety
+            ];
+
+
+            const max =
+                Math.max(...values, 1);
+
+
+            chart.innerHTML = "";
+
+
+            const labels = [
+                "Road",
+                "Medical",
+                "Fire",
+                "Safety"
+            ];
+
+
+            const classes = [
+                "chart-red",
+                "chart-blue",
+                "chart-orange",
+                "chart-green"
+            ];
+
+
+            values.forEach(
+                (value, index) => {
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+                    item.className =
+                        "bar-item";
+
+
+                    const height =
+                        Math.max(
+                            (value / max) * 100,
+                            value > 0 ? 15 : 5
+                        );
+
+
+                    item.innerHTML = `
+
+                        <strong>
+                            ${value}
+                        </strong>
+
+                        <div class="bar-track">
+
+                            <div
+                                class="bar ${classes[index]}"
+                                style="height:${height}%"
+                            ></div>
+
+                        </div>
+
+                        <span>
+                            ${labels[index]}
+                        </span>
+
+                    `;
+
+
+                    chart.appendChild(item);
+
+                }
+            );
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            loadAnalytics
+        );
+
+    </script>
+
+</body>
+
+</html>

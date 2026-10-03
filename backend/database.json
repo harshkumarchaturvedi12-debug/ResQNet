@@ -1,0 +1,40 @@
+{
+    "incidents": [
+        {
+            "id": 1790441465071,
+            "type": "Road Accident",
+            "location": "wazirabad sector 52",
+            "date": "20022-07-06",
+            "description": "backend database test",
+            "createdAt": "2026-09-26T16:51:05.071Z"
+        }
+    ],
+    "contacts": [
+        {
+            "id": 1790495745198,
+            "name": "father",
+            "phone": "9536993733",
+            "createdAt": "2026-09-27T07:55:45.198Z"
+        }
+    ],
+    "alerts": [
+        {
+            "id": 1790441005742,
+            "type": "Emergency Alert",
+            "location": "Location not provided",
+            "date": "2026-09-26",
+            "description": "Emergency alert created from ResQNet at 10:13 pm",
+            "alertTime": "10:13 pm",
+            "createdAt": "2026-09-26T16:43:25.742Z"
+        },
+        {
+            "id": 1790441007693,
+            "type": "Emergency Alert",
+            "location": "Location not provided",
+            "date": "2026-09-26",
+            "description": "Emergency alert created from ResQNet at 10:13 pm",
+            "alertTime": "10:13 pm",
+            "createdAt": "2026-09-26T16:43:27.693Z"
+        }
+    ]
+}

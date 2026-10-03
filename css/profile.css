@@ -1,0 +1,490 @@
+/* ==========================================
+   RESQNET - PROFESSIONAL PROFILE
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.profile-header {
+    height: 76px;
+    background: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    color: white;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 40px;
+    height: 40px;
+    background: #d62828;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.brand strong {
+    display: block;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+}
+
+.brand strong span {
+    color: #ef4444;
+}
+
+.brand small {
+    display: block;
+    color: #9ca3af;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #374151;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background: #1f2937;
+}
+
+
+/* ==========================================
+   MAIN
+   ========================================== */
+
+.profile-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 55px 0 70px;
+}
+
+
+/* ==========================================
+   INTRO
+   ========================================== */
+
+.intro {
+    margin-bottom: 30px;
+}
+
+.label {
+    color: #d62828;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.intro h1 {
+    font-size: 36px;
+    margin: 10px 0;
+    color: #111827;
+}
+
+.intro p {
+    color: #667085;
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   MAIN PROFILE CARD
+   ========================================== */
+
+.profile-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(16, 24, 40, 0.07);
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   PROFILE TOP
+   ========================================== */
+
+.profile-top {
+    padding: 32px;
+    background: linear-gradient(
+        135deg,
+        #111827,
+        #1f2937
+    );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-avatar {
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    background: #d62828;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+    font-weight: bold;
+
+    border: 4px solid rgba(255,255,255,0.15);
+}
+
+.profile-heading {
+    flex: 1;
+}
+
+.profile-heading span {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #9ca3af;
+    font-weight: bold;
+}
+
+.profile-heading h2 {
+    font-size: 25px;
+    margin: 6px 0;
+}
+
+.profile-heading p {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.active-status {
+    background: rgba(34, 197, 94, 0.15);
+    color: #86efac;
+    border: 1px solid rgba(134, 239, 172, 0.25);
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   PROFILE SECTIONS
+   ========================================== */
+
+.profile-section {
+    padding: 32px;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-heading span {
+    color: #d62828;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+}
+
+.section-heading h3 {
+    font-size: 21px;
+    margin-top: 7px;
+    color: #111827;
+}
+
+
+/* ==========================================
+   PERSONAL INFORMATION
+   ========================================== */
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.profile-item {
+    background: #f8fafc;
+    border: 1px solid #edf0f4;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.profile-item span {
+    display: block;
+    color: #98a2b3;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.profile-item strong {
+    font-size: 15px;
+    color: #344054;
+}
+
+
+/* ==========================================
+   READINESS
+   ========================================== */
+
+.readiness-section {
+    background: #fcfcfd;
+}
+
+.readiness-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.readiness-top p {
+    color: #667085;
+    font-size: 14px;
+}
+
+.readiness-top strong {
+    font-size: 30px;
+    color: #d62828;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 18px 0 22px;
+}
+
+.progress-fill {
+    width: 86%;
+    height: 100%;
+    background: #d62828;
+    border-radius: 20px;
+}
+
+.readiness-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.readiness-list div {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 13px;
+    border-radius: 9px;
+    font-size: 13px;
+    color: #475467;
+}
+
+
+/* ==========================================
+   SYSTEM INFORMATION
+   ========================================== */
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.system-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 17px 18px;
+
+    border: 1px solid #edf0f4;
+    border-radius: 11px;
+
+    background: #f8fafc;
+}
+
+.system-item span {
+    font-size: 11px;
+    color: #98a2b3;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+}
+
+.system-item strong {
+    color: #344054;
+    font-size: 14px;
+}
+
+.status-active {
+    color: #16a34a !important;
+}
+
+
+/* ==========================================
+   INFORMATION BOX
+   ========================================== */
+
+.info-box {
+    margin-top: 25px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    box-shadow: 0 6px 20px rgba(16, 24, 40, 0.04);
+}
+
+.info-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+.info-box h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.info-box p {
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+    text-align: center;
+    padding: 22px;
+    color: #98a2b3;
+    font-size: 13px;
+    border-top: 1px solid #e5e7eb;
+    background: white;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 800px) {
+
+    .profile-header {
+        padding: 0 4%;
+    }
+
+    .profile-container {
+        width: 92%;
+        padding-top: 35px;
+    }
+
+    .profile-top {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .active-status {
+        margin-left: 102px;
+        margin-top: -5px;
+    }
+
+    .profile-grid,
+    .system-grid,
+    .readiness-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .brand small {
+        display: none;
+    }
+
+    .intro h1 {
+        font-size: 28px;
+    }
+
+    .profile-top,
+    .profile-section {
+        padding: 24px;
+    }
+
+    .profile-avatar {
+        width: 65px;
+        height: 65px;
+        font-size: 27px;
+    }
+
+    .profile-heading h2 {
+        font-size: 20px;
+    }
+
+    .back-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+}

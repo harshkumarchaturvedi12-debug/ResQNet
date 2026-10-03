@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResQNet | Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <header class="dashboard-header">
+
+        <div class="brand">
+            <div class="brand-icon">+</div>
+
+            <div>
+                <strong>ResQ<span>Net</span></strong>
+                <small>Smart Emergency Assistance</small>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-layout">
+
+        <nav class="side-nav">
+
+            <a href="dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="emergency.html">
+                Emergency Center
+            </a>
+
+            <a href="contacts.html">
+                Emergency Contacts
+            </a>
+
+            <a href="incident.html">
+                Incident Records
+            </a>
+
+            <a href="analytics.html">
+                Safety Analytics
+            </a>
+
+            <a href="map.html">
+                Safety Map
+            </a>
+
+            <a href="profile.html">
+                My Profile
+            </a>
+
+        </nav>
+
+
+        <main class="dashboard-main">
+
+            <section class="welcome-section">
+
+                <span class="label">
+                    RESQNET DASHBOARD
+                </span>
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Safety Assistance Platform
+                </p>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <span>
+                            TOTAL INCIDENTS
+                        </span>
+
+                        <h2 id="totalIncidents">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        +
+                    </div>
+
+                    <div>
+
+                        <span>
+                            EMERGENCY CONTACTS
+                        </span>
+
+                        <h2 id="totalContacts">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        03
+                    </div>
+
+                    <div>
+
+                        <span>
+                            EMERGENCY SERVICES
+                        </span>
+
+                        <h2>
+                            03
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SAFETY STATUS
+                        </span>
+
+                        <h2>
+                            Active
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <span>
+                        QUICK ACCESS
+                    </span>
+
+                    <h2>
+                        Emergency Services
+                    </h2>
+
+                </div>
+
+
+                <div class="quick-grid">
+
+                    <a href="emergency.html" class="quick-card">
+
+                        <div class="quick-icon">
+                            !
+                        </div>
+
+                        <div>
+                            <h3>Emergency Center</h3>
+
+                            <p>
+                                Access emergency assistance
+                                and create alerts.
+                            </p>
+                        </div>
+
+                    </a>
+
+
+                    <a href="contacts.html" class="quick-card">
+
+                        <div class="quick-icon">
+                            +
+                        </div>
+
+                        <div>
+                            <h3>Emergency Contacts</h3>
+
+                            <p>
+                                Manage your important
+                                emergency contacts.
+                            </p>
+                        </div>
+
+                    </a>
+
+
+                    <a href="incident.html" class="quick-card">
+
+                        <div class="quick-icon">
+                            #
+                        </div>
+
+                        <div>
+                            <h3>Incident Records</h3>
+
+                            <p>
+                                Record and review safety
+                                incidents.
+                            </p>
+                        </div>
+
+                    </a>
+
+
+                    <a href="analytics.html" class="quick-card">
+
+                        <div class="quick-icon">
+                            %
+                        </div>
+
+                        <div>
+                            <h3>Safety Analytics</h3>
+
+                            <p>
+                                Monitor safety statistics
+                                and activity.
+                            </p>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECENT INCIDENTS -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <span>
+                        RECENT ACTIVITY
+                    </span>
+
+                    <h2>
+                        Recent Incidents
+                    </h2>
+
+                </div>
+
+
+                <div id="recentIncidents">
+
+                    <div class="recent-card">
+
+                        <div>
+                            <strong>
+                                Loading...
+                            </strong>
+
+                            <p>
+                                Fetching incident records.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SAFETY NOTICE -->
+
+            <section class="safety-notice">
+
+                <div class="notice-icon">
+                    i
+                </div>
+
+                <div>
+
+                    <h3>
+                        Safety Notice
+                    </h3>
+
+                    <p>
+                        ResQNet is designed to organize
+                        emergency information and safety
+                        records. In a real emergency,
+                        contact the appropriate emergency
+                        service directly.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <footer>
+        ResQNet Smart Emergency Assistance Platform
+    </footer>
+
+
+    <script src="js/app.js"></script>
+
+
+    <!-- BACKEND DASHBOARD CONNECTION -->
+
+    <script>
+
+        const BACKEND_URL =
+            "http://127.0.0.1:5000/api";
+
+
+        async function loadDashboardData() {
+
+            try {
+
+                const response =
+                    await fetch(`${BACKEND_URL}/database`);
+
+                const data =
+                    await response.json();
+
+
+                if (!data.success) {
+                    throw new Error(
+                        "Database request failed"
+                    );
+                }
+
+
+                /* TOTAL INCIDENTS */
+
+                const incidentElement =
+                    document.getElementById(
+                        "totalIncidents"
+                    );
+
+                if (incidentElement) {
+
+                    incidentElement.textContent =
+                        data.totalIncidents || 0;
+
+                }
+
+
+                /* TOTAL CONTACTS */
+
+                const contactElement =
+                    document.getElementById(
+                        "totalContacts"
+                    );
+
+                if (contactElement) {
+
+                    contactElement.textContent =
+                        data.totalContacts || 0;
+
+                }
+
+
+                /* RECENT INCIDENTS */
+
+                const recentContainer =
+                    document.getElementById(
+                        "recentIncidents"
+                    );
+
+
+                if (!recentContainer) {
+                    return;
+                }
+
+
+                const incidentResponse =
+                    await fetch(
+                        `${BACKEND_URL}/incidents`
+                    );
+
+
+                const incidentData =
+                    await incidentResponse.json();
+
+
+                recentContainer.innerHTML = "";
+
+
+                if (
+                    !incidentData.success ||
+                    !incidentData.incidents ||
+                    incidentData.incidents.length === 0
+                ) {
+
+                    recentContainer.innerHTML = `
+
+                        <div class="recent-card">
+
+                            <div>
+
+                                <strong>
+                                    No incidents recorded
+                                </strong>
+
+                                <p>
+                                    No incident records are
+                                    currently available.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                    return;
+                }
+
+
+                /* SHOW LATEST 3 INCIDENTS */
+
+                const incidents =
+                    incidentData.incidents
+                        .slice(-3)
+                        .reverse();
+
+
+                incidents.forEach(incident => {
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className =
+                        "recent-card";
+
+
+                    let formattedDate =
+                        incident.date || "Date not available";
+
+
+                    if (incident.date) {
+
+                        const date =
+                            new Date(incident.date);
+
+
+                        if (!isNaN(date)) {
+
+                            formattedDate =
+                                date.toLocaleDateString(
+                                    "en-IN",
+                                    {
+                                        day: "2-digit",
+                                        month: "short",
+                                        year: "numeric"
+                                    }
+                                );
+
+                        }
+
+                    }
+
+
+                    card.innerHTML = `
+
+                        <div>
+
+                            <strong>
+                                ${incident.type || "Incident"}
+                            </strong>
+
+                            <p>
+                                ${incident.description ||
+                                "Incident recorded in ResQNet."}
+                            </p>
+
+                            <small>
+                                📍 ${incident.location ||
+                                "Location not provided"}
+                                &nbsp; | &nbsp;
+                                📅 ${formattedDate}
+                            </small>
+
+                        </div>
+
+                        <span>
+                            Recorded
+                        </span>
+
+                    `;
+
+
+                    recentContainer.appendChild(card);
+
+                });
+
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Dashboard Backend Error:",
+                    error
+                );
+
+
+                const recentContainer =
+                    document.getElementById(
+                        "recentIncidents"
+                    );
+
+
+                if (recentContainer) {
+
+                    recentContainer.innerHTML = `
+
+                        <div class="recent-card">
+
+                            <div>
+
+                                <strong>
+                                    Backend Offline
+                                </strong>
+
+                                <p>
+                                    Please start the ResQNet
+                                    backend server.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+
+            }
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            loadDashboardData
+        );
+
+    </script>
+
+</body>
+
+</html>

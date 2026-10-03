@@ -1,0 +1,703 @@
+/* ==========================================
+   RESQNET - PROFESSIONAL EMERGENCY CENTER
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #111827;
+    color: white;
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px 28px;
+    border-bottom: 1px solid #273244;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    background: #d62828;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.brand strong {
+    display: block;
+    font-size: 22px;
+}
+
+.brand strong span {
+    color: #ef4444;
+}
+
+.brand small {
+    display: block;
+    color: #9ca3af;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.side-nav {
+    margin-top: 28px;
+}
+
+.side-nav a {
+    display: block;
+    color: #aeb8c8;
+    text-decoration: none;
+    padding: 13px 14px;
+    margin-bottom: 6px;
+    border-radius: 9px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.side-nav a:hover {
+    background: #1f2937;
+    color: white;
+}
+
+.side-nav a.active {
+    background: #d62828;
+    color: white;
+    box-shadow: 0 5px 15px rgba(214, 40, 40, 0.25);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 15px;
+    background: #1a2332;
+    border: 1px solid #273244;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(34,197,94,0.10);
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+
+.main-content {
+    margin-left: 250px;
+    min-height: 100vh;
+    padding: 38px 45px;
+}
+
+
+/* ==========================================
+   TOP BAR
+   ========================================== */
+
+.topbar {
+    margin-bottom: 28px;
+}
+
+.top-label {
+    display: block;
+    color: #d62828;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 7px;
+}
+
+.topbar h1 {
+    font-size: 32px;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.topbar p {
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   EMERGENCY ALERT PANEL
+   ========================================== */
+
+.alert-panel {
+    background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+    color: white;
+    border-radius: 16px;
+    padding: 25px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 25px rgba(185, 28, 28, 0.15);
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.alert-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    background: rgba(255,255,255,0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.alert-label {
+    color: #fecaca;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+}
+
+.alert-panel h2 {
+    font-size: 21px;
+    margin: 5px 0;
+}
+
+.alert-panel p {
+    color: #fee2e2;
+    font-size: 12px;
+}
+
+.alert-button {
+    border: none;
+    background: white;
+    color: #b91c1c;
+    padding: 13px 18px;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.alert-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+
+/* ==========================================
+   PROFESSIONAL LOCATION PANEL
+   ========================================== */
+
+.location-panel {
+    background: white;
+    border: 1px solid #e4e7ec;
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    box-shadow: 0 5px 18px rgba(16,24,40,0.04);
+}
+
+.location-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.location-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    background: #eff6ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.location-label {
+    display: block;
+    color: #2563eb;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+    margin-bottom: 5px;
+}
+
+.location-panel h2 {
+    font-size: 19px;
+    color: #111827;
+    margin-bottom: 5px;
+}
+
+.location-panel p {
+    color: #667085;
+    font-size: 12px;
+}
+
+.location-button {
+    border: 1px solid #2563eb;
+    background: #2563eb;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.location-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.location-button:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ==========================================
+   LOCATION RESULT
+   ========================================== */
+
+.location-result {
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-left: 4px solid #2563eb;
+    border-radius: 14px;
+    padding: 19px 22px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 18px rgba(37,99,235,0.06);
+}
+
+.result-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.location-result span {
+    display: block;
+    color: #16a34a;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    margin-bottom: 5px;
+}
+
+.location-result h3 {
+    color: #172033;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.location-result p {
+    color: #667085;
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   EMERGENCY CARDS
+   ========================================== */
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.emergency-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: 0 5px 18px rgba(16,24,40,0.04);
+    transition: 0.2s;
+}
+
+.emergency-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(16,24,40,0.08);
+}
+
+.emergency-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.emergency-icon.medical {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.emergency-icon.accident {
+    background: #fef2f2;
+    color: #d62828;
+}
+
+.emergency-icon.fire {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.emergency-icon.safety {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+
+.card-label {
+    color: #98a2b3;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.emergency-card h2 {
+    font-size: 19px;
+    margin: 7px 0;
+    color: #111827;
+}
+
+.emergency-card p {
+    color: #667085;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.emergency-link {
+    color: #d62828;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   SAFETY NOTICE
+   ========================================== */
+
+.safety-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.notice-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #fef3c7;
+    color: #d97706;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.safety-notice span {
+    color: #b45309;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.safety-notice h2 {
+    font-size: 17px;
+    margin: 5px 0;
+}
+
+.safety-notice p {
+    color: #78716c;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   EMERGENCY NUMBERS
+   ========================================== */
+
+.numbers-section {
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    margin-bottom: 16px;
+}
+
+.section-heading span {
+    color: #d62828;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+    margin-top: 5px;
+}
+
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.number-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 19px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.number-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #fef2f2;
+    color: #d62828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.number-card > div:nth-child(2) {
+    flex: 1;
+}
+
+.number-card span {
+    color: #98a2b3;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.number-card h2 {
+    margin-top: 3px;
+    font-size: 21px;
+}
+
+.number-card a {
+    color: #d62828;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   STAY SAFE
+   ========================================== */
+
+.stay-safe {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.safe-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.stay-safe h2 {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.stay-safe p {
+    color: #667085;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 3px 5px;
+    border-top: 1px solid #e5e7eb;
+    color: #98a2b3;
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1000px) {
+
+    .numbers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .side-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .sidebar-bottom {
+        margin-top: 15px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 30px 25px;
+    }
+
+    .alert-panel,
+    .location-panel {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .alert-button,
+    .location-button {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .main-content {
+        padding: 25px 18px;
+    }
+
+    .topbar h1 {
+        font-size: 26px;
+    }
+
+    .side-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .location-content {
+        align-items: flex-start;
+    }
+
+    .location-result {
+        align-items: flex-start;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}

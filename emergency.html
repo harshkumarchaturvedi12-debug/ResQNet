@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResQNet | Emergency Center</title>
+
+    <link rel="stylesheet" href="css/emergency.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                +
+            </div>
+
+            <div>
+                <strong>ResQ<span>Net</span></strong>
+                <small>Emergency Assistance</small>
+            </div>
+
+        </div>
+
+
+        <nav class="side-nav">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="emergency.html" class="active">
+                Emergency Center
+            </a>
+
+            <a href="contacts.html">
+                Emergency Contacts
+            </a>
+
+            <a href="incident.html">
+                Incident Records
+            </a>
+
+            <a href="analytics.html">
+                Safety Analytics
+            </a>
+
+            <a href="profile.html">
+                My Profile
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="status-dot"></div>
+
+            <span>
+                Safety System Active
+            </span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="top-label">
+                    EMERGENCY ASSISTANCE
+                </span>
+
+                <h1>
+                    How can we help?
+                </h1>
+
+                <p>
+                    Select an emergency category to access relevant
+                    safety information and assistance resources.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- QUICK EMERGENCY ALERT -->
+
+        <section class="alert-panel">
+
+            <div class="alert-content">
+
+                <div class="alert-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <span class="alert-label">
+                        QUICK ALERT
+                    </span>
+
+                    <h2>
+                        Need Immediate Assistance?
+                    </h2>
+
+                    <p>
+                        Create a local emergency alert record
+                        in the ResQNet system.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="emergencyAlertButton"
+                class="alert-button"
+            >
+                🚨 Create Emergency Alert
+            </button>
+
+        </section>
+
+
+        <!-- SAFETY LOCATION -->
+
+        <section class="location-panel">
+
+            <div class="location-content">
+
+                <div class="location-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <span class="location-label">
+                        LOCATION SUPPORT
+                    </span>
+
+                    <h2>
+                        Your Safety Location
+                    </h2>
+
+                    <p id="locationStatus">
+                        Location has not been detected yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="getLocationButton"
+                class="location-button"
+            >
+                Detect My Location
+            </button>
+
+        </section>
+
+
+        <!-- LOCATION RESULT -->
+
+        <section
+            id="locationResult"
+            class="location-result"
+            style="display: none;"
+        >
+
+            <div class="result-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <span>
+                    LOCATION DETECTED
+                </span>
+
+                <h3 id="locationCoordinates">
+                    Location available
+                </h3>
+
+                <p>
+                    Your location is displayed locally in
+                    ResQNet for demonstration purposes.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EMERGENCY CATEGORIES -->
+
+        <section class="emergency-grid">
+
+
+            <!-- MEDICAL -->
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon medical">
+                    +
+                </div>
+
+                <span class="card-label">
+                    MEDICAL SUPPORT
+                </span>
+
+                <h2>
+                    Medical Emergency
+                </h2>
+
+                <p>
+                    Access medical assistance information and
+                    emergency healthcare resources.
+                </p>
+
+                <a
+                    href="tel:108"
+                    class="emergency-link"
+                >
+                    Call Ambulance →
+                </a>
+
+            </div>
+
+
+            <!-- ACCIDENT -->
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon accident">
+                    !
+                </div>
+
+                <span class="card-label">
+                    ROAD SAFETY
+                </span>
+
+                <h2>
+                    Road Accident
+                </h2>
+
+                <p>
+                    Follow basic safety steps and quickly access
+                    emergency assistance.
+                </p>
+
+                <a
+                    href="tel:112"
+                    class="emergency-link"
+                >
+                    Call Emergency Services →
+                </a>
+
+            </div>
+
+
+            <!-- FIRE -->
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon fire">
+                    !
+                </div>
+
+                <span class="card-label">
+                    FIRE RESPONSE
+                </span>
+
+                <h2>
+                    Fire Emergency
+                </h2>
+
+                <p>
+                    Access fire safety information and emergency
+                    response resources.
+                </p>
+
+                <a
+                    href="tel:101"
+                    class="emergency-link"
+                >
+                    Call Fire Service →
+                </a>
+
+            </div>
+
+
+            <!-- PERSONAL SAFETY -->
+
+            <div class="emergency-card">
+
+                <div class="emergency-icon safety">
+                    ✓
+                </div>
+
+                <span class="card-label">
+                    PERSONAL SAFETY
+                </span>
+
+                <h2>
+                    Personal Safety
+                </h2>
+
+                <p>
+                    Access personal safety resources and emergency
+                    preparedness information.
+                </p>
+
+                <a
+                    href="contacts.html"
+                    class="emergency-link"
+                >
+                    Get Emergency Help →
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- SAFETY NOTICE -->
+
+        <section class="safety-notice">
+
+            <div class="notice-icon">
+                !
+            </div>
+
+            <div>
+
+                <span>
+                    IMPORTANT SAFETY NOTICE
+                </span>
+
+                <h2>
+                    ResQNet is an assistance platform
+                </h2>
+
+                <p>
+                    ResQNet provides information and organizational
+                    support. For immediate danger or a serious
+                    emergency, contact the appropriate local
+                    emergency service.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EMERGENCY NUMBERS -->
+
+        <section class="numbers-section">
+
+            <div class="section-heading">
+
+                <span>
+                    QUICK ACCESS
+                </span>
+
+                <h2>
+                    Emergency Services
+                </h2>
+
+            </div>
+
+
+            <div class="numbers-grid">
+
+
+                <div class="number-card">
+
+                    <div class="number-icon">
+                        !
+                    </div>
+
+                    <div>
+                        <span>
+                            POLICE / EMERGENCY
+                        </span>
+
+                        <h2>
+                            112
+                        </h2>
+                    </div>
+
+                    <a href="tel:112">
+                        Call Now
+                    </a>
+
+                </div>
+
+
+                <div class="number-card">
+
+                    <div class="number-icon">
+                        +
+                    </div>
+
+                    <div>
+                        <span>
+                            AMBULANCE
+                        </span>
+
+                        <h2>
+                            108
+                        </h2>
+                    </div>
+
+                    <a href="tel:108">
+                        Call Now
+                    </a>
+
+                </div>
+
+
+                <div class="number-card">
+
+                    <div class="number-icon">
+                        !
+                    </div>
+
+                    <div>
+                        <span>
+                            FIRE SERVICE
+                        </span>
+
+                        <h2>
+                            101
+                        </h2>
+                    </div>
+
+                    <a href="tel:101">
+                        Call Now
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- STAY SAFE -->
+
+        <section class="stay-safe">
+
+            <div class="safe-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <h2>
+                    Stay Calm. Stay Safe.
+                </h2>
+
+                <p>
+                    Move to a safe location when possible, provide
+                    accurate information to emergency responders,
+                    and follow instructions from local authorities.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <span>
+                ResQNet Smart Emergency Assistance Platform
+            </span>
+
+            <span>
+                Safety • Awareness • Assistance
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- RESQNET JAVASCRIPT -->
+
+    <script src="js/app.js"></script>
+
+    <script>
+
+        // ==========================================
+        // RESQNET - LOCATION SUPPORT
+        // ==========================================
+
+        const locationButton =
+            document.getElementById(
+                "getLocationButton"
+            );
+
+        const locationStatus =
+            document.getElementById(
+                "locationStatus"
+            );
+
+        const locationResult =
+            document.getElementById(
+                "locationResult"
+            );
+
+        const locationCoordinates =
+            document.getElementById(
+                "locationCoordinates"
+            );
+
+
+        if (locationButton) {
+
+            locationButton.addEventListener(
+                "click",
+                function () {
+
+                    if (!navigator.geolocation) {
+
+                        locationStatus.textContent =
+                            "Location detection is not supported by this browser.";
+
+                        return;
+
+                    }
+
+
+                    locationButton.textContent =
+                        "Detecting Location...";
+
+                    locationButton.disabled =
+                        true;
+
+
+                    locationStatus.textContent =
+                        "Requesting your browser location permission...";
+
+
+                    navigator.geolocation.getCurrentPosition(
+
+                        function (position) {
+
+                            const latitude =
+                                position.coords.latitude.toFixed(5);
+
+                            const longitude =
+                                position.coords.longitude.toFixed(5);
+
+
+                            locationCoordinates.textContent =
+                                "Latitude: " +
+                                latitude +
+                                " | Longitude: " +
+                                longitude;
+
+
+                            locationStatus.textContent =
+                                "Location detected successfully.";
+
+
+                            locationResult.style.display =
+                                "flex";
+
+
+                            locationButton.textContent =
+                                "Location Detected ✓";
+
+                            locationButton.disabled =
+                                false;
+
+                        },
+
+
+                        function () {
+
+                            locationStatus.textContent =
+                                "Location permission was not provided. You can try again.";
+
+                            locationButton.textContent =
+                                "Try Again";
+
+                            locationButton.disabled =
+                                false;
+
+                        }
+
+                    );
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

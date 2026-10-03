@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResQNet | Emergency Contacts</title>
+
+    <link rel="stylesheet" href="css/contacts.css">
+</head>
+
+<body>
+
+    <header class="contacts-header">
+
+        <div class="brand">
+
+            <div class="brand-icon">+</div>
+
+            <div>
+                <strong>ResQ<span>Net</span></strong>
+                <small>Emergency Contacts</small>
+            </div>
+
+        </div>
+
+        <a href="dashboard.html" class="back-btn">
+            ← Dashboard
+        </a>
+
+    </header>
+
+
+    <main class="contacts-container">
+
+        <!-- INTRO -->
+
+        <section class="intro">
+
+            <span class="label">
+                EMERGENCY CONTACTS
+            </span>
+
+            <h1>Important Contacts</h1>
+
+            <p>
+                Keep important emergency services and trusted contacts
+                available in one place.
+            </p>
+
+        </section>
+
+
+        <!-- EMERGENCY SERVICES -->
+
+        <section class="contact-grid">
+
+            <div class="contact-card">
+
+                <div class="contact-icon police">
+                    !
+                </div>
+
+                <div class="contact-info">
+
+                    <span>EMERGENCY SERVICE</span>
+
+                    <h2>Police</h2>
+
+                    <p>
+                        For police and public safety assistance.
+                    </p>
+
+                </div>
+
+                <a href="tel:112" class="call-btn">
+                    Call
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon ambulance">
+                    +
+                </div>
+
+                <div class="contact-info">
+
+                    <span>MEDICAL SERVICE</span>
+
+                    <h2>Ambulance</h2>
+
+                    <p>
+                        For medical emergency assistance.
+                    </p>
+
+                </div>
+
+                <a href="tel:108" class="call-btn">
+                    Call
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon fire">
+                    !
+                </div>
+
+                <div class="contact-info">
+
+                    <span>FIRE SERVICE</span>
+
+                    <h2>Fire Service</h2>
+
+                    <p>
+                        For fire and rescue assistance.
+                    </p>
+
+                </div>
+
+                <a href="tel:101" class="call-btn">
+                    Call
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD CONTACT -->
+
+        <section class="add-contact">
+
+            <div class="section-heading">
+
+                <span>TRUSTED CONTACT</span>
+
+                <h2>Add Emergency Contact</h2>
+
+            </div>
+
+
+            <form id="contactForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="contactName">
+                            Contact Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contactName"
+                            placeholder="Enter contact name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="contactPhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="contactPhone"
+                            placeholder="Enter phone number"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="save-contact-btn"
+                >
+                    Add Contact
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- SAVED CONTACTS -->
+
+        <section class="saved-contacts">
+
+            <div class="section-heading">
+
+                <span>SAVED CONTACTS</span>
+
+                <h2>Your Trusted Contacts</h2>
+
+            </div>
+
+
+            <div id="contactList">
+
+                <div class="empty-contact">
+                    No trusted contacts added yet.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION -->
+
+        <section class="info-box">
+
+            <div class="info-icon">
+                i
+            </div>
+
+            <div>
+
+                <h3>Safety Information</h3>
+
+                <p>
+                    ResQNet organizes emergency contact information
+                    for quick access during safety situations.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        ResQNet Smart Emergency Assistance Platform
+    </footer>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
